@@ -6,6 +6,7 @@ import cors from "cors"
 dotenv.config()
 import {Server} from "socket.io"
 import http from "http"
+import { env } from "process"
 
 const app = express()
 app.use(cors())
@@ -21,7 +22,7 @@ const io = new Server(server, {
 })
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: env.process.OPENAI_API_KEY,
 });
 
 
