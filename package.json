@@ -1,0 +1,16 @@
+{
+  "name": "djur-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "nanoid": "^5.0.6"
+  },
+  "scripts": {
+    "server": "yarn --cwd server dev",
+    "client": "yarn --cwd client start",
+    "start": "concurrently \"yarn server\" \"yarn client\""
+  }
+}

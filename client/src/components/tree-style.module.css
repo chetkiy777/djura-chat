@@ -1,0 +1,31 @@
+ul {
+    list-style: none;
+    font-size: 20px;
+}
+
+.folders li {
+    position: relative;
+    padding-top: 20px;
+}
+
+.folders li::before {
+    content:"";
+    border-left: 3px solid #000;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -30px;
+}
+
+.folders li::after {
+    content: "";
+    border-bottom: 3px solid #000;
+    position: absolute;
+    left: -30px;
+    top: 30px;
+    width: 20px;
+}
+
+.folders li:last-child::before {
+    height: 30px;
+}
