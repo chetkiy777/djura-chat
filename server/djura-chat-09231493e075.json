@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "djura-chat",
+  "private_key_id": "09231493e075538cccb76d3ddbffc5041da991f2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC05of6jGkVBf5s\nJxFdzxnmOka/WLdiloBKX2rH/GoG24u0GKk6HGNUfC/MWmxSKgfknSzVWf5Z8VHz\n0VvCdnqJhTQPkQ1KwL4toRA+X7Pc0JcQpQsFo4QU6aYSPfhDREUR7GhhesiskTrj\nX06UM12Fu8wkEzITnovGmBGdEzQPf8zvF5kmJK+jS9s1xlnsushPu2dSg5i4mgv6\nV88jTyDuMz0tM0p9UeIK22T65TVKSgOD171uPKPvqiR+Ag0IFJGRroUfYRrgqMsI\nt3xmPtbqWksYELBHM7ik8m5m280L4+9x9q++KgdcN7HBuBanNLBMrGh31IOx9NGb\n7Bwp1wiLAgMBAAECggEAEW6dmovpRw4FebqSC9jR2sOxiZgs+SJznmHE0nIFGEAT\nyE5lZaTSqujaBPaPCvk4kCktPCn96VY92sxJQVtVbOcZyzOOdQOkepUovDn7Wm38\nq1fxe0ufMLy133rP76YmhGxO6rCATKYkvJW0kXIZswdpIUN68d+3Vx3UT1nzDFh5\nx9i1Bq8il+no8z3WgepJgXg7yrLFt1Om+AnFk83KhJ2zdO8evQMCW+l2scf4acu6\nY8i7H9QNvpKM4vP2CY+HBufuPz1kKM3Lhwxsgcp1Y+qNnb9kBXEz6IJa3fZWxDyK\nGWXvt6FYmH0WUPrp4fPvvHnx6vIABSWKV/kywO83cQKBgQD6cAGf6QEbQ0AWI6QK\nUV0WHTa4e4RO2oLG9NvW02NLv8KMezL9G0cF6uqowSxN9hCaZUiS8Y9V5hwNVtpU\nzOxVAY5PucuGGjXspzuiRtINdlQ2AkMbvy7+DzjY5qOS8724wkgDjBcSzcItiWyi\nSjhaQlRpY/aYb9m7HqyxG/xIhwKBgQC46yK/Z51MebLTRBHdCM8IK8zCZQNu97xE\naZQsFKfhg9PknCtWifC52Qk/pcrCO/pUJDBa+QWAhSbTc1Q3IQPyQYcYz9S75fXz\nEvsEz+9K9wMg78Qoe2Amo6G4S43/x6U2sFRW86+oyZLi2xex/0zajNs8oS36wCoU\ndIKtzGc03QKBgG+/KMps0sSSdncqghjkg0/Jy0/4NWpmEDKssaei/UygjTPYCUFt\nOXzHfNu+DoHfCTuLdB21Ucr3eY7uMU/jfJTVs+WZNtpouaUWXgKj7Th6k0riKYWp\nAlP1AN2v1E9PGVnmvvFuQiFu1HUzO9kSmyCTNk0sgK02Q4Y+QrpojWLjAoGAHTZA\nAf6rUbZz8n3xWHqYwhCxQxBUD4ahPilzl9cXgj+iDJ5DFmOqHKHVnTFiq3ZwIDSr\nUuO948SlEohIiID1r6J8ZgYG9Dvqs6CO+P6kLbKB0wUtdruuv8vfs050OzDdv5rx\nZ98NI9vcEWxM/Ph4upm/1H8d1VvgCeUx86SztR0CgYEA9xpB+rJ/klXMiDg1TESA\nqYLIAN5li6LvLKofWcSU1OD/hRORo9VrFIlpreSIR8mTXpFwP0LAAbpTdLdPNfHL\nzQQrlr3wrHSEO2tiwOvVByN1upD9qPK2Zyvcvm9Ri0T+sZRgVKP6fypxf2VGPBuw\n0tD9uqP3a211TkOec12KNs0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "djura-chat@djura-chat.iam.gserviceaccount.com",
+  "client_id": "117693528074165040226",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/djura-chat%40djura-chat.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

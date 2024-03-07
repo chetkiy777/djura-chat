@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "concurrently": "^8.2.2",
+    "googleapis": "^95.0.0",
     "nanoid": "^5.0.6"
   },
   "scripts": {
