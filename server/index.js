@@ -22,7 +22,7 @@ const io = new Server(server, {
 })
 
 const openai = new OpenAI({
-  apiKey: env.process.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 

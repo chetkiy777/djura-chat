@@ -1,7 +1,7 @@
 import { IconButton, Divider, InputBase, Paper, Grid, Box, Typography, List, ListItem } from "@mui/material"
 import SendIcon from '@mui/icons-material/Send';
 import AudioFileIcon from '@mui/icons-material/AudioFile';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { dialogs } from "../mokData/dialogs";
 import _find from 'lodash/find'
 import io from "socket.io-client";
@@ -10,34 +10,54 @@ const socket = io.connect("http://localhost:5000")
 
 export const Chat = () => {
 
-
+    const elemRef = useRef(null)
 
     const [inputValue, setInputValue] = useState("")
     const [currentMesages, setCurrentMesages ] = useState([])
 
-    async function sendMessage() {
+    useEffect(() => {
+        elemRef?.current?.scrollIntoView({ top: elemRef.scrollHeight})
+    }, [currentMesages])
+
+    const sendMessage = useCallback(async function sendMessage() {
         if (inputValue !== "") {
             const messageData = {
                 author: "Human",
                 message: inputValue
             }
 
-            setCurrentMesages([...currentMesages, messageData])
+            setCurrentMesages((list) => [...list, messageData])
             setInputValue("")
 
             await socket.emit("send_message", messageData)
         }
-    }
+    }, [inputValue])
+
+
+    useEffect(() => {
+        const listener = event => {
+            if (event.code === "Enter" || event.code === "NumpadEnter") {
+                event.preventDefault();
+                sendMessage()
+            }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+          document.removeEventListener("keydown", listener);
+        };
+      }, [sendMessage]);
+
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
             setCurrentMesages((list) => [...list, data])
+            elemRef?.current?.scrollIntoView({ top: elemRef.scrollHeight})
         })
     },[])
 
 
 
-    return <Grid item md sx={{ background: "#2563EB", display: 'flex', flexDirection: 'column', justifyContent: "space-between"  }}>
+    return <Grid item md sx={{ background: "#2563EB", display: 'flex', flexDirection: 'column', justifyContent: "space-between"}}>
                 <List 
                     sx={{
                     display: 'flex', 
@@ -63,9 +83,7 @@ export const Chat = () => {
                                 {message.author}
                             </Typography>
                             
-                            <Box style={{width: '400px', height: 'content', border: 'none', resize: 'none'}}>
-                                {message.message}
-                            </Box>
+                            <span ref={elemRef} style={{width: '400px', wordWrap: "break-word", height: "auto"}}>{message.message}</span>
                                 
                         </ListItem>)
                     }
