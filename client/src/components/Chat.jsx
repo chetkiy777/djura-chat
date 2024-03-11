@@ -5,15 +5,29 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { dialogs } from "../mokData/dialogs";
 import _find from 'lodash/find'
 import io from "socket.io-client";
+import { getGoogleSheet, getWeatherByCity } from "../api/api";
 
 const socket = io.connect("http://localhost:5000")
 
-export const Chat = () => {
+export const Chat = ({itemId}) => {
 
     const elemRef = useRef(null)
 
     const [inputValue, setInputValue] = useState("")
     const [currentMesages, setCurrentMesages ] = useState([])
+
+
+    async function getSheet() {
+        return await getGoogleSheet()
+    }
+
+    useEffect(() => {
+
+        getSheet()
+        console.log(itemId)
+    }, [itemId])
+
+
 
     useEffect(() => {
         elemRef?.current?.scrollIntoView({ top: elemRef.scrollHeight})
@@ -32,6 +46,33 @@ export const Chat = () => {
             await socket.emit("send_message", messageData)
         }
     }, [inputValue])
+
+
+    async function getWeather() {
+        
+        if (!inputValue) {
+            return
+        }
+
+        const city = inputValue
+
+        let result = await getWeatherByCity(city)
+
+        console.log(result)
+        if (result) {
+            const message = {
+                author: "openweather",
+                message: JSON.stringify(result, null, 4)
+            }
+
+            setCurrentMesages(list => [...list, message])
+
+
+        }
+
+        setInputValue("")
+        
+    }
 
 
     useEffect(() => {
@@ -108,7 +149,7 @@ export const Chat = () => {
 
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 
-                <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
+                <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions" onClick={getWeather}>
                     <AudioFileIcon />
                 </IconButton>
         </Paper>

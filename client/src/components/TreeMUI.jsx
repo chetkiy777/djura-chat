@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Grid, Box, IconButton, Button, TextField } from "@mui/material"
 import { TreeView, TreeItem } from "@mui/x-tree-view"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -10,6 +10,9 @@ import _find from 'lodash/find'
 import _isEmpty from 'lodash/isEmpty'
 import { flatMap, iteratee } from "lodash"
 import { Mode } from "@mui/icons-material"
+import { getGoogleSheet } from "../api/api"
+import Modal from "./Modal"
+import { transformData } from "../common/transformData"
 
 
 let data = {
@@ -67,6 +70,27 @@ let data = {
 
 export const TreeMUI = ({setItemId}) => {
 
+    const [showModal, setShowModal] = useState(0)
+    const [soldiers, setSoldiers] = useState([])
+
+    const closeModal = () => {
+      setShowModal(0)
+    }
+
+
+
+    useEffect(() => {
+      async function getData() {
+        let result = await getGoogleSheet()
+        const parsedData = transformData(result)
+
+        setSoldiers([...parsedData])
+      }
+
+      getData()
+    }, [])
+
+
     const handleSelect = (event, nodeId) => {
         setItemId(nodeId)
       };
@@ -97,6 +121,10 @@ export const TreeMUI = ({setItemId}) => {
             >
                 {renderTree(data)}
             </TreeView>
+
+            <button onClick={() => setShowModal(1)}>Get Squad Info</button>
+
+            <Modal onClose={closeModal} active={showModal} data={soldiers}/>
         </Box>
 
     </Grid>

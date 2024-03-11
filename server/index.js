@@ -136,5 +136,13 @@ app.post("/bot", async (req, res) => {
     res.send(botAnswer)
 })
 
+
+app.get("/getSheet", async (req, res) => {
+    const googleSheetClient = await _getGoogleSheetClient();
+    const data = await _readGoogleSheet(googleSheetClient, sheetId, tabName, range);
+
+    res.status(200).json(data)
+})
+
 server.listen(PORT, () => console.log(`server is running on port ${PORT}`))
 

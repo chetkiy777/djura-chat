@@ -13,6 +13,7 @@
     "lowdb": "^7.0.1",
     "nodemon": "^3.1.0",
     "openai": "^4.28.4",
+    "openweather-api-node": "^3.1.2",
     "socket.io": "^4.7.4",
     "supervisor": "^0.12.0"
   },

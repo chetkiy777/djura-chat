@@ -27,6 +27,7 @@ function App() {
           <OpenInBrowserIcon color="primary" />
           <Typography variant="h6" color="primary">Logs</Typography>
         </IconButton>
+        
     </Grid>
   );
 }
